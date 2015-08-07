@@ -22,7 +22,8 @@
   },
   "homepage": "https://github.com/runtakun/lambda-dynamodb-bigquery#readme",
   "dependencies": {
-    "gcloud": "^0.17.0"
+    "gcloud": "^0.17.0",
+    "lodash": "^3.10.1"
   },
   "devDependencies": {
     "aws-sdk": "^2.1.44",
