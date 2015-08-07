@@ -15,11 +15,21 @@ exports.handler = function(event, context) {
   });
   console.log('rows:', JSON.stringify(rows, null, 2));
 
+  var tableName;
+  if (_.has(config, 'table') && config.table) {
+    tableName = config.table
+  } else {
+    var arn =  _.chain(event.Records).first().get('eventSourceARN').toString();
+    var resource = arn.split(':')[5];
+    tableName = resource.split('/')[1];
+  }
+  console.log('tableName:', tableName);
+
   var bigquery = gcloud.bigquery({
     projectId: config.project,
     keyFilename: 'gcpkey.json',
   });
-  var table = bigquery.dataset(config.dataset).table(config.table);
+  var table = bigquery.dataset(config.dataset).table(tableName);
 
   table.insert(rows, function(err, insertErrors) {
     if (err) return context.done(err);
