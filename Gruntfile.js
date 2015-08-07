@@ -5,6 +5,7 @@ grunt.initConfig({
 	lambda_invoke: {
 		default: {
 			options: {
+				file_name: "DynamoDBBigQuery.js",
 			}
 		}
 	},
