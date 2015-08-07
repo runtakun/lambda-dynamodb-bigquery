@@ -20,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/runtakun/lambda-dynamodb-bigquery/issues"
   },
-  "homepage": "https://github.com/runtakun/lambda-dynamodb-bigquery#readme"
+  "homepage": "https://github.com/runtakun/lambda-dynamodb-bigquery#readme",
+  "dependencies": {
+    "gcloud": "^0.17.0"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.1.44"
+  }
 }
