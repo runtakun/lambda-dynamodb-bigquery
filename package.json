@@ -25,6 +25,8 @@
     "gcloud": "^0.17.0"
   },
   "devDependencies": {
-    "aws-sdk": "^2.1.44"
+    "aws-sdk": "^2.1.44",
+    "grunt": "^0.4.5",
+    "grunt-aws-lambda": "^0.10.0"
   }
 }
