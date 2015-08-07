@@ -1,0 +1,24 @@
+{
+  "name": "lambda-dynamodb-bigquery",
+  "version": "1.0.0",
+  "description": "AWS Lambda function for insert DynamoDB records to Google BigQuery",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/runtakun/lambda-dynamodb-bigquery.git"
+  },
+  "keywords": [
+    "dynamodb",
+    "bigquery",
+    "lambda"
+  ],
+  "author": "runtakun <shigeta@glgl.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/runtakun/lambda-dynamodb-bigquery/issues"
+  },
+  "homepage": "https://github.com/runtakun/lambda-dynamodb-bigquery#readme"
+}
