@@ -64,7 +64,7 @@ https://console.cloud.google.com/permissions/serviceaccounts
 
 You should specify project name and dataset id by JSON file named `gcpconfig.json`.
 
-Exmaple:
+Example:
 
 ```json
 {"project": "lambda-bigquery-sample", "dataset": "sample"}
@@ -75,7 +75,7 @@ Exmaple:
 By default, BigQuery table will be named with the same as DynamoDB's one. But you can specify specific name by configuration.
 
 
-Exmaple:
+Example:
 
 ```json
 {"project": "lambda-bigquery-sample", "dataset": "sample", "table": "Sample"}
@@ -86,7 +86,7 @@ Exmaple:
 
 You can use table partitioning by configuration field `tablePartitionPeriod` and specifing `daily` or `monthly`. You should create normal table before data is inserted. For example, if you creates table named `Sample` on BigQuery, BigQuery creates `Sample20160401` table.
 
-Exmaple:
+Example:
 
 ```json
 {"project": "lambda-bigquery-sample", "dataset": "sample", "tablePartitionPeriod": "monthly"}
