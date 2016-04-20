@@ -34,23 +34,23 @@ nvm install v0.10.44
 git clone https://github.com/runtakun/lambda-dynamodb-bigquery.git
 ```
 
-- change directory and install npm packages
+- Change directory and install npm packages
 
 ```shell
 cd lambda-dynamodb-bigquery
 npm install
 ```
 
-- add configuration file and account key file
+- Add configuration file and account key file
 
-- install grunt and build package
+- Install grunt and build package
 
 ```shell
 npm install -g grunt-cli
 grunt lambda_package
 ```
 
-- create AWS Lambda function and upload package
+- Create AWS Lambda function and upload package
 
 Create Lambda function in AWS console and speficy `Node.js 0.10` in Runtime section.
 
