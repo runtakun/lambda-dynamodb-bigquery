@@ -13,7 +13,6 @@ exports.handler = function(event, context) {
   .map(function(element) {
     return unmarshalItem(element);
   });
-  console.log('rows:', JSON.stringify(rows, null, 2));
 
   var tableName;
   if (_.has(config, 'table') && config.table) {
@@ -31,7 +30,17 @@ exports.handler = function(event, context) {
   });
   var table = bigquery.dataset(config.dataset).table(tableName);
 
-  table.insert(rows, function(err, insertErrors) {
+  var options = {};
+  if (config.tablePartitionPeriod == "monthly") {
+    var date = new Date();
+    date.setDate(1);
+    options.templateSuffix = getTemplateSuffix(date);
+  } else if (config.tablePartitionPeriod == "daily") {
+    var date = new Date();
+    options.templateSuffix = getTemplateSuffix(date);
+  }
+
+  table.insert(rows, options, function(err, insertErrors) {
     if (err) return context.done(err);
     if (insertErrors && insertErrors.length > 0) {
       _.forEach(insertErrors, function (insertError){
@@ -46,3 +55,14 @@ exports.handler = function(event, context) {
     context.done(null, "success");
   });
 };
+
+function getTemplateSuffix(d) {
+  return d.getFullYear() + padZero(d.getMonth() + 1) + padZero(d.getDate());
+}
+
+function padZero(n) {
+  if (n > 10) {
+    return n.toString(10);
+  }
+  return '0' + n.toString(10);
+}
