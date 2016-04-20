@@ -91,3 +91,7 @@ Example:
 ```json
 {"project": "lambda-bigquery-sample", "dataset": "sample", "tablePartitionPeriod": "monthly"}
 ```
+
+## THANKS
+
+- https://github.com/hakobera/lambda-kinesis-bigquery
