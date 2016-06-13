@@ -12,7 +12,7 @@ exports.handler = function(event, context) {
   .pluck('dynamodb.NewImage')
   .map(function(element) {
     return unmarshalItem(element);
-  });
+  }).value();
 
   var tableName;
   if (_.has(config, 'table') && config.table) {
@@ -40,7 +40,7 @@ exports.handler = function(event, context) {
     options.templateSuffix = getTemplateSuffix(date);
   }
 
-  table.insert(rows, options, function(err, insertErrors) {
+  table.insert(rows, options, function(err, insertErrors, apiResponse) {
     if (err) return context.done(err);
     if (insertErrors && insertErrors.length > 0) {
       _.forEach(insertErrors, function (insertError){
@@ -51,7 +51,7 @@ exports.handler = function(event, context) {
       });
       return context.done("error");
     }
-
+    console.log(apiResponse);
     context.done(null, "success");
   });
 };
