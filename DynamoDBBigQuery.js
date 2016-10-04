@@ -61,7 +61,7 @@ function getTemplateSuffix(d) {
 }
 
 function padZero(n) {
-  if (n > 10) {
+  if (n > 9) {
     return n.toString(10);
   }
   return '0' + n.toString(10);
